@@ -9,4 +9,14 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>DespesaServlet</display-name>
+    <servlet-name>DespesaServlet</servlet-name>
+    <servlet-class>br.com.fiap.poupemais.controller.DespesaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DespesaServlet</servlet-name>
+    <url-pattern>/DespesaServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -10,6 +10,7 @@ public class Despesa {
     private Calendar dtDespesa;
     private String tpDespesa;
     private int idUsuario;
+    
     public Despesa(int idDespesa, String dsDespesa, double vlrDespesa, Calendar dtDespesa, String tpDespesa, int idUsuario) {
     	super();
     	this.idDespesa = idDespesa;
