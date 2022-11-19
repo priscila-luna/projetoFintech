@@ -51,7 +51,7 @@ public class OracleDespesaDAO implements DespesaDAO{
 }
 
 	@Override
-	public void editar(Despesa despesa) throws DBException {
+	public void atualizar(Despesa despesa) throws DBException {
 		PreparedStatement stmt = null;
 	//Format formatter = new SimpleDateFormat("yyy-MM-dd");
 		
@@ -65,12 +65,12 @@ public class OracleDespesaDAO implements DespesaDAO{
 		java.sql.Date dataDespesa = new java.sql.Date(despesa.getDtDespesa().getTimeInMillis());
 	    stmt.setDate(3, dataDespesa);
 	    stmt.setString(4, despesa.getTpDespesa());
-	    stmt.setInt(5, despesa.getIdUsuario() );
+	    stmt.setInt(5, despesa.getIdDespesa() );
 	    
 	    stmt.executeUpdate();
 	}catch (SQLException e) {
 		e.printStackTrace();
-		throw new DBException("Erro ao editar despesa.");
+		throw new DBException("Erro ao atualizar despesa.");
 	}finally {
 		try {
 			stmt.close();
@@ -105,14 +105,14 @@ public class OracleDespesaDAO implements DespesaDAO{
 	}
 
 	@Override
-	public Despesa buscar(int idDespesa, int idUsuario) {
+	public Despesa buscar(int idDespesa) {
 		Despesa despesa = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		try {
 			conexao = ConnectionManager.getInstance().getConnection();
-			stmt = conexao.prepareStatement("SELECT * FROM T_DESPESA INNER JOIN T_USUARIO ON T_USUARIO.ID_USUARIO = T_DESPESA.ID_USUARIO WHERE T_DESPESA.ID_USUARIO = ?");
-			stmt.setInt(1, idUsuario);
+			stmt = conexao.prepareStatement("SELECT * FROM T_DESPESA  WHERE ID_DESPESA = ?");
+			stmt.setInt(1, idDespesa);
 			rs = stmt.executeQuery();
 			
 			if (rs.next()) {

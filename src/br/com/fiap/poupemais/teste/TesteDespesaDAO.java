@@ -24,11 +24,11 @@ public class TesteDespesaDAO {
 		
 		//Buscar despesa e atualizar
 		
-		despesa = dao.buscar(10, 1);
+		despesa = dao.buscar(10);
 		despesa.setDsDespesa("Cinema Especial");
 		despesa.setVlrDespesa(60);
 		try {
-			dao.editar(despesa);
+			dao.atualizar(despesa);
 			System.out.println("Despesa Editada com sucesso!");
 		}catch (DBException e) {
 			e.printStackTrace();
