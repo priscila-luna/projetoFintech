@@ -1,15 +1,12 @@
 package br.com.fiap.poupemais.dao.impl;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.text.Format;
-import java.text.SimpleDateFormat;
 import br.com.fiap.poupemais.bean.Despesa;
 import br.com.fiap.poupemais.dao.DespesaDAO;
 import br.com.fiap.poupemais.exception.DBException;
@@ -22,15 +19,12 @@ public class OracleDespesaDAO implements DespesaDAO{
 	public void cadastrar (Despesa despesa) throws DBException {
 		PreparedStatement stmt = null;
 	
-	//Format formatter = new SimpleDateFormat("yyy-MM-dd");
-	
 	try {
 		conexao = ConnectionManager.getInstance().getConnection();
 		String sql = "INSERT INTO T_DESPESA (DS_DESPESA, VLR_DESPESA, DT_DESPESA, TP_DESPESA, ID_USUARIO) VALUES (?, ?, ?, ?, ?)";
 		stmt = conexao.prepareStatement(sql);
 		stmt.setString(1, despesa.getDsDespesa());
 		stmt.setDouble(2, despesa.getVlrDespesa());
-        //Date dataDespesa = Date.valueOf(formatter.format(despesa.getDtDespesa()));
 		java.sql.Date dataDespesa = new java.sql.Date(despesa.getDtDespesa().getTimeInMillis());
         stmt.setDate(3, dataDespesa);
         stmt.setString(4, despesa.getTpDespesa());
@@ -53,7 +47,6 @@ public class OracleDespesaDAO implements DespesaDAO{
 	@Override
 	public void atualizar(Despesa despesa) throws DBException {
 		PreparedStatement stmt = null;
-	//Format formatter = new SimpleDateFormat("yyy-MM-dd");
 		
 	try {
 		conexao = ConnectionManager.getInstance().getConnection();
@@ -61,7 +54,6 @@ public class OracleDespesaDAO implements DespesaDAO{
 		stmt = conexao.prepareStatement(sql);
 		stmt.setString(1, despesa.getDsDespesa());
 		stmt.setDouble(2, despesa.getVlrDespesa());
-	   //java.sql.Date dataDespesa = Date.valueOf(formatter.format(despesa.getDtDespesa()));
 		java.sql.Date dataDespesa = new java.sql.Date(despesa.getDtDespesa().getTimeInMillis());
 	    stmt.setDate(3, dataDespesa);
 	    stmt.setString(4, despesa.getTpDespesa());

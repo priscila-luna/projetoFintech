@@ -5,8 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
-import br.com.fiap.poupemais.bean.Despesa;
-import br.com.fiap.poupemais.dao.DespesaDAO;
+import br.com.fiap.poupemais.bean.Usuario;
+import br.com.fiap.poupemais.dao.UsuarioDAO;
 import br.com.fiap.poupemais.exception.DBException;
 import br.com.fiap.poupemais.factory.DAOFactory;
 import jakarta.servlet.ServletException;
@@ -15,17 +15,17 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/despesa")
-public class DespesaServlet extends HttpServlet {
+@WebServlet("/usuario")
+public class UsuarioServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
-	private DespesaDAO dao;
+	private UsuarioDAO dao;
 	
 	@Override
 	public void init() throws ServletException {
 		super.init();
-		dao = DAOFactory.getDespesaDAO();
+		dao = DAOFactory.getUsuarioDAO();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -46,10 +46,10 @@ public class DespesaServlet extends HttpServlet {
 	
 	private void excluir(HttpServletRequest request, HttpServletResponse response)
 		    throws ServletException, IOException {
-		  int idDespesa = Integer.parseInt(request.getParameter("idDespesa"));
+		  int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));
 		  try {
-		    dao.remover(idDespesa);
-		    request.setAttribute("msg", "Registro de despesa removida!");
+		    dao.remover(idUsuario);
+		    request.setAttribute("msg", "Usuário removido!");
 		  } catch (DBException e) {
 		    e.printStackTrace();
 		    request.setAttribute("erro", "Erro ao atualizar");
@@ -60,46 +60,46 @@ public class DespesaServlet extends HttpServlet {
 	private void cadastrar(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try{
-			String descricao = request.getParameter("dsDespesa");
-			double valor = Double.parseDouble(request.getParameter("vlrDespesa"));
+			String nome = request.getParameter("nmUsuario");
+			String email = request.getParameter("dsEmail");
 			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-			Calendar dataDespesa = Calendar.getInstance();
-			dataDespesa.setTime(format.parse(request.getParameter("dtDespesa")));
-			String tipo = request.getParameter("tpDespesa");
-			int idUsuarioFixo = 1;
+			Calendar dataNascimento = Calendar.getInstance();
+			dataNascimento.setTime(format.parse(request.getParameter("dtNascimento")));
+			String senha = request.getParameter("senha");
+			String celular = request.getParameter("nmrCelular");
 			
-			Despesa despesa = new Despesa(descricao, valor, dataDespesa, tipo, idUsuarioFixo); 
-			dao.cadastrar(despesa);
+			Usuario usuario = new Usuario(nome, email, dataNascimento, senha, celular); 
+			dao.cadastrar(usuario);
 			
-			request.setAttribute("msg", "Despesa cadastrado!");
+			request.setAttribute("msg", "Usuário cadastrado!");
 		}catch(DBException db) {
 			db.printStackTrace();
-			request.setAttribute("erro", "Erro ao cadastrar Despesa");
+			request.setAttribute("erro", "Erro ao cadastrar Usuário");
 		}catch(Exception e){
 			e.printStackTrace();
 			request.setAttribute("erro","Por favor, valide os dados");
 		}
-		request.getRequestDispatcher("cadastro-despesa.jsp").forward(request, response);
+		request.getRequestDispatcher("cadastro-usuario.jsp").forward(request, response);
 	}
 	
 	private void editar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			int codDespesa = Integer.parseInt(request.getParameter("idDespesa"));
-			String descricao = request.getParameter("dsDespesa");
-			double valor = Double.parseDouble(request.getParameter("vlrDespesa"));
+			int codUsuario = Integer.parseInt(request.getParameter("idUsuario"));
+			String nome = request.getParameter("nmUsuario");
+			String email = request.getParameter("dsEmail");
 			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-			Calendar dataDespesa = Calendar.getInstance();
-			dataDespesa.setTime(format.parse(request.getParameter("dtDespesa")));
-			String tipo = request.getParameter("tpDespesa");
-			int idUsuarioFixo = 1;
+			Calendar dataNascimento = Calendar.getInstance();
+			dataNascimento.setTime(format.parse(request.getParameter("dtNascimento")));
+			String senha = request.getParameter("senha");
+			String celular = request.getParameter("nmrCelular");
 
-			Despesa despesa = new Despesa(codDespesa, descricao, valor, dataDespesa, tipo, idUsuarioFixo);
-			dao.atualizar(despesa);
+			Usuario usuario = new Usuario(codUsuario, nome, email, dataNascimento, senha, celular);
+			dao.atualizar(usuario);
 
-			request.setAttribute("msg", "Despesa atualizada!");
+			request.setAttribute("msg", "Usuário atualizado!");
 		} catch (DBException db) {
 			db.printStackTrace();
-			request.setAttribute("erro", "Erro ao atualizar despesa");
+			request.setAttribute("erro", "Erro ao atualizar usuário");
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("erro", "Por favor, valide os dados");
@@ -121,16 +121,16 @@ public class DespesaServlet extends HttpServlet {
 	
 	private void abrirFormEdicao(HttpServletRequest request, HttpServletResponse response)
 		      throws ServletException, IOException {
-		    int idDespesa = Integer.parseInt(request.getParameter("idDespesa"));
-		    Despesa despesa = dao.buscar(idDespesa);
-		    request.setAttribute("despesa", despesa);
-		    request.getRequestDispatcher("edicao-despesa.jsp").forward(request, response);
+		    int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));
+		    Usuario usuario = dao.buscar(idUsuario);
+		    request.setAttribute("usuario", usuario);
+		    request.getRequestDispatcher("edicao-usuario.jsp").forward(request, response);
 		  }
 
 	private void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Despesa> lista = dao.listar();
-		request.setAttribute("despesas", lista);
-		request.getRequestDispatcher("lista-despesa.jsp").forward(request, response);
+		List<Usuario> lista = dao.listar();
+		request.setAttribute("usuario", lista);
+		request.getRequestDispatcher("lista-usuario.jsp").forward(request, response);
 	}
 			
 }

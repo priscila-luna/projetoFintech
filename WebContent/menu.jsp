@@ -7,10 +7,16 @@
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item">
-				<a class="nav-link" href="cadastro-despesa.jsp">Cadastro</a>
+				<a class="nav-link" href="cadastro-usuario.jsp">Cadastro Usuário</a>
 			</li>
 			<li class="nav-item">
-			<a class="nav-link" href="despesa?acao=listar">Despesas</a>
+				<a class="nav-link" href="cadastro-despesa.jsp">Cadastro Despesa</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="despesa?acao=listar">Despesas</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="usuario?acao=listar">Usuários</a>
 			</li>
 		</ul>
 		<form class="form-inline my-2 my-lg-0">

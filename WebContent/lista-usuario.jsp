@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Cadastro de Despesa</title>
+<title>Usuário</title>
 <%@ include file="header.jsp" %>
 </head>
 <body>
@@ -14,7 +14,7 @@
 
 <%@ include file="menu.jsp"%>
 	<div class="container">
-		<h1>Despesas</h1>
+		<h1>Usuarios</h1>
 		<c:if test="${not empty msg }">
 			<div class="alert alert-success">${msg}</div>
 		</c:if>
@@ -23,28 +23,25 @@
 		</c:if>
 		<table class="table table-striped">
 			<tr>
-				<th>Descrição</th>
-				<th>Valor</th>
-				<th>Data</th>
-				<th>Tipo</th>
+				<th>Nome</th>
+				<th>Login</th>
+				<th>Data de Nascimento</th>
 				<th></th>
 			</tr>
-			<c:forEach items="${despesas}" var="p">
+			<c:forEach items="${usuario}" var="p">
 				<tr>
-					<td>${p.dsDespesa}</td>
-					<td>${p.vlrDespesa}</td>
-					<td>${p.tpDespesa}</td>
+					<td>${p.nmUsuario}</td>
+					<td>${p.dsEmail}</td>
 					<td>
-						<fmt:formatDate value="${p.dtDespesa.time}" pattern="dd/MM/yyyy"/>
+						<fmt:formatDate value="${p.dtNascimento.time}" pattern="dd/MM/yyyy"/>
 					</td>
 					<td>
-						<c:url value="despesa" var="link">
+						<c:url value="usuario" var="link">
 							<c:param name="acao" value="abrir-form-edicao"/>
-							<c:param name="idDespesa" value="${p.idDespesa}"/>
 							<c:param name="idUsuario" value="${p.idUsuario}"/>
 						</c:url>
 						<a class="btn btn-primary" href="${link}">Editar</a>
-						<button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#excluirModal" onclick="idDespesaExcluir.value = ${p.idDespesa}">Excluir</button>
+						<button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#excluirModal" onclick="idDespesaExcluir.value = ${p.idUsuario}">Excluir</button>
 					</td>
 				</tr>
 			</c:forEach>
@@ -63,12 +60,12 @@
         </button>
       </div>
       <div class="modal-body">
-            Deseja realmente excluir o registro?
+            Deseja realmente excluir o Usuário?
       </div>
       <div class="modal-footer">
-        <form action="despesa" method="post">
+        <form action="usuario" method="post">
           <input type="hidden" name="acao" value="excluir">
-          <input type="hidden" name="idDespesa" id="idDespesaExcluir">
+          <input type="hidden" name="idUsuario" id="idUsuarioExcluir">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
           <button type="submit" class="btn btn-danger">Excluir</button>
         </form>

@@ -5,36 +5,40 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Cadastro de Despesa</title>
+<title>Cadastro de Usuário</title>
 <%@ include file="header.jsp" %>
 </head>
 <body>
 <%@ include file="menu.jsp" %>
 <div class="container">
-	<h1>Cadastro de Despesa</h1>
+	<h1>Cadastro de Usuário</h1>
 	<c:if test="${not empty msg }">
 		<div class="alert alert-success">${msg}</div>
 	</c:if>
 	<c:if test="${not empty erro }">
 		<div class="alert alert-danger">${erro}</div>
 	</c:if>
-	<form action="despesa" method="post">
+	<form action="usuario" method="post">
 	<input type="hidden" value="cadastrar" name="acao">
 		<div class="form-group">
-			<label for="id-descricao">Descrição</label>
-			<input type="text" name="dsDespesa" id="id-descricao" class="form-control">
+			<label for="id-descricao">Nome</label>
+			<input type="text" name="nmUsuario" id="id-nome" class="form-control">
 		</div>
 		<div class="form-group">
-			<label for="id-valor">Valor</label>
-			<input type="text" name="vlrDespesa" id="id-valor" class="form-control">
+			<label for="id-valor">Email</label>
+			<input type="text" name="dsEmail" id="id-email" class="form-control">
 		</div>
 		<div class="form-group">
-			<label for="id-dataDespesa">Data de Despesa</label>
-			<input type="text" name="dtDespesa" id="id-dataDespesa" class="form-control">
+			<label for="id-dataDespesa">Data de Nascimento</label>
+			<input type="text" name="dtNascimento" id="id-dataNascimento" class="form-control">
 		</div>
 		<div class="form-group">
-			<label for="id-tipo">Tipo</label>
-			<input type="text" name="tpDespesa" id="id-tipo" class="form-control">
+			<label for="id-tipo">Senha</label>
+			<input type="text" name="senha" id="id-senha" class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="id-tipo">Celular</label>
+			<input type="text" name="nmrCelular" id="id-celular" class="form-control">
 		</div>
 		<input type="submit" value="Salvar" class="btn btn-primary">
 	</form>
