@@ -69,12 +69,12 @@ public class DespesaServlet extends HttpServlet {
 	private void editar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			int codDespesa = Integer.parseInt(request.getParameter("idDespesa"));
-			String descricao = request.getParameter("descricao");
-			double valor = Double.parseDouble(request.getParameter("valor"));
+			String descricao = request.getParameter("dsDespesa");
+			double valor = Double.parseDouble(request.getParameter("vlrDespesa"));
 			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 			Calendar dataDespesa = Calendar.getInstance();
-			dataDespesa.setTime(format.parse(request.getParameter("dataDespesa")));
-			String tipo = request.getParameter("tipo");
+			dataDespesa.setTime(format.parse(request.getParameter("dtDespesa")));
+			String tipo = request.getParameter("tpDespesa");
 			int idUsuarioFixo = 1;
 
 			Despesa despesa = new Despesa(codDespesa, descricao, valor, dataDespesa, tipo, idUsuarioFixo);

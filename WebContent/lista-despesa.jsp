@@ -15,6 +15,12 @@
 <%@ include file="menu.jsp"%>
 	<div class="container">
 		<h1>Despesas</h1>
+		<c:if test="${not empty msg }">
+			<div class="alert alert-success">${msg}</div>
+		</c:if>
+		<c:if test="${not empty erro }">
+			<div class="alert alert-danger">${erro}</div>
+		</c:if>
 		<table class="table table-striped">
 			<tr>
 				<th>Descrição</th>
@@ -37,7 +43,7 @@
 							<c:param name="idDespesa" value="${p.idDespesa}"/>
 							<c:param name="idUsuario" value="${p.idUsuario}"/>
 						</c:url>
-						<a href="${link}">Editar</a>
+						<a class="btn btn-primary" href="${link}">Editar</a>
 					</td>
 				</tr>
 			</c:forEach>

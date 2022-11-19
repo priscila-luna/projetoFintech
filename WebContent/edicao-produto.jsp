@@ -21,23 +21,23 @@
 	</c:if>
 	<form action="despesa" method="post">
 		<input type="hidden" value="editar" name="acao">
-		<input type="hidden" value="${despesa.idDespesa}" name="codDespesa">
+		<input type="hidden" value="${despesa.idDespesa}" name="idDespesa">
 		<div class="form-group">
 			<label for="id-descricao">Descrição</label>
-			<input type="text" name="nome" id="id-descricao" class="form-control" value="${despesa.dsDespesa}" >
+			<input type="text" name="dsDespesa" id="id-descricao" class="form-control" value="${despesa.dsDespesa}" >
 		</div>
 		<div class="form-group">
 			<label for="id-valor">Valor</label>
-			<input type="text" name="valor" id="id-valor" class="form-control" value="${despesa.vlrDespesa}">
+			<input type="text" name="vlrDespesa" id="id-valor" class="form-control" value="${despesa.vlrDespesa}">
 		</div>
 		<div class="form-group">
 			<label for="id-data">Data da Despesa</label>
-			<input type="text" name="data" id="id-data" class="form-control" 
+			<input type="text" name="dtDespesa" id="id-data" class="form-control" 
 				value='<fmt:formatDate value="${despesa.dtDespesa.time }" pattern="dd/MM/yyyy"/>'>
 		</div>
 		<div class="form-group">
 			<label for="id-tipo">Tipo</label>
-			<input type="text" name="tipo" id="id-tipo" class="form-control" value="${despesa.tpDespesa}">
+			<input type="text" name="tpDespesa" id="id-tipo" class="form-control" value="${despesa.tpDespesa}">
 		</div>
 		<input type="submit" value="Salvar" class="btn btn-primary">
 		<a href="produto?acao=listar" class="btn btn-danger">Cancelar</a>

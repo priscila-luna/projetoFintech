@@ -4,7 +4,7 @@
 		<span class="navbar-toggler-icon"></span>
 	</button>
 		
-	<div class="collapse navbar-collapse" id="navbarSupporedContent">
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item">
 				<a class="nav-link" href="cadastro-despesa.jsp">Cadastro</a>
@@ -18,5 +18,4 @@
 			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 		</form>
 	</div>
-	
 </nav>

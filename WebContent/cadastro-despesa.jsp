@@ -13,7 +13,7 @@
 <div class="container">
 	<h1>Cadastro de Despesa</h1>
 	<c:if test="${not empty msg }">
-		<div class="alert alert-sucess">$ {msg}</div>
+		<div class="alert alert-success">${msg}</div>
 	</c:if>
 	<c:if test="${not empty erro }">
 		<div class="alert alert-danger">${erro}</div>
