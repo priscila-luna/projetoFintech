@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Cadastro de Despesa</title>
+<title>Lista de Despesa</title>
 <%@ include file="header.jsp" %>
 </head>
 <body>

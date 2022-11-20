@@ -28,7 +28,7 @@
 				<th>Data de Nascimento</th>
 				<th></th>
 			</tr>
-			<c:forEach items="${usuario}" var="p">
+			<c:forEach items="${usuarios}" var="p">
 				<tr>
 					<td>${p.nmUsuario}</td>
 					<td>${p.dsEmail}</td>

@@ -100,6 +100,20 @@ public class Usuario {
     public void setNmrCelular(String nmrCelular) {
     	this.nmrCelular = nmrCelular;
     }
-    
+
+    public String toString() {
+        return
+                "idDespesa=" + idUsuario +
+                        ", nmUsuario='" + nmUsuario + '\'' +
+                        ", dsEmail=" + dsEmail +
+                        ", dtNascimento=" + dtNascimento +
+                        ", senha='" + senha + 
+                        ", nmrCelular='" + nmrCelular +
+                        '\''
+                ;
+    }
+
+
 }
+
     

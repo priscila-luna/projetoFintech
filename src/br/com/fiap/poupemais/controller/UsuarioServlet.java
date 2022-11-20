@@ -129,7 +129,7 @@ public class UsuarioServlet extends HttpServlet {
 
 	private void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Usuario> lista = dao.listar();
-		request.setAttribute("usuario", lista);
+		request.setAttribute("usuarios", lista);
 		request.getRequestDispatcher("lista-usuario.jsp").forward(request, response);
 	}
 			

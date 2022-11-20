@@ -9,15 +9,27 @@
 			<li class="nav-item">
 				<a class="nav-link" href="cadastro-usuario.jsp">Cadastro Usuário</a>
 			</li>
+			
 			<li class="nav-item">
 				<a class="nav-link" href="cadastro-despesa.jsp">Cadastro Despesa</a>
 			</li>
+			
+			<li class="nav-item">
+				<a class="nav-link" href="cadastro-receita.jsp">Cadastro Receita</a>
+			</li>
+			
 			<li class="nav-item">
 				<a class="nav-link" href="despesa?acao=listar">Despesas</a>
 			</li>
+			
+			<li class="nav-item">
+				<a class="nav-link" href="receita?acao=listar">Receitas</a>
+			</li>
+			
 			<li class="nav-item">
 				<a class="nav-link" href="usuario?acao=listar">Usuários</a>
 			</li>
+			
 		</ul>
 		<form class="form-inline my-2 my-lg-0">
 			<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
