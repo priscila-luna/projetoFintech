@@ -40,7 +40,7 @@
 			<input type="text" name="tpDespesa" id="id-tipo" class="form-control" value="${despesa.tpDespesa}">
 		</div>
 		<input type="submit" value="Salvar" class="btn btn-primary">
-		<a href="produto?acao=listar" class="btn btn-danger">Cancelar</a>
+		<a href="despesa?acao=listar" class="btn btn-danger">Cancelar</a>
 	</form>
 </div>
 <%@ include file="footer.jsp" %>
