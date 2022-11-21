@@ -49,7 +49,7 @@ public class UsuarioServlet extends HttpServlet {
 		  int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));
 		  try {
 		    dao.remover(idUsuario);
-		    request.setAttribute("msg", "Usuário removido!");
+		    request.setAttribute("msg", "Usuï¿½rio removido!");
 		  } catch (DBException e) {
 		    e.printStackTrace();
 		    request.setAttribute("erro", "Erro ao atualizar");
@@ -68,13 +68,15 @@ public class UsuarioServlet extends HttpServlet {
 			String senha = request.getParameter("senha");
 			String celular = request.getParameter("nmrCelular");
 			
+			System.out.println(nome);
+			
 			Usuario usuario = new Usuario(nome, email, dataNascimento, senha, celular); 
 			dao.cadastrar(usuario);
 			
-			request.setAttribute("msg", "Usuário cadastrado!");
+			request.setAttribute("msg", "Usuï¿½rio cadastrado!");
 		}catch(DBException db) {
 			db.printStackTrace();
-			request.setAttribute("erro", "Erro ao cadastrar Usuário");
+			request.setAttribute("erro", "Erro ao cadastrar Usuï¿½rio");
 		}catch(Exception e){
 			e.printStackTrace();
 			request.setAttribute("erro","Por favor, valide os dados");
@@ -96,10 +98,10 @@ public class UsuarioServlet extends HttpServlet {
 			Usuario usuario = new Usuario(codUsuario, nome, email, dataNascimento, senha, celular);
 			dao.atualizar(usuario);
 
-			request.setAttribute("msg", "Usuário atualizado!");
+			request.setAttribute("msg", "Usuï¿½rio atualizado!");
 		} catch (DBException db) {
 			db.printStackTrace();
-			request.setAttribute("erro", "Erro ao atualizar usuário");
+			request.setAttribute("erro", "Erro ao atualizar usuï¿½rio");
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("erro", "Por favor, valide os dados");

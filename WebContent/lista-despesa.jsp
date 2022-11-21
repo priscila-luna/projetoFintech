@@ -11,7 +11,6 @@
 </head>
 <body>
 
-
 <%@ include file="menu.jsp"%>
 	<div class="container">
 		<h1>Despesas</h1>

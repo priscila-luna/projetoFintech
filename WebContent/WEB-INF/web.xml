@@ -29,4 +29,14 @@
     <servlet-name>UsuarioServlet</servlet-name>
     <url-pattern>/UsuarioServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AutenticacaoServlet</display-name>
+    <servlet-name>AutenticacaoServlet</servlet-name>
+    <servlet-class>br.com.fiap.poupemais.controller.AutenticacaoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AutenticacaoServlet</servlet-name>
+    <url-pattern>/AutenticacaoServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

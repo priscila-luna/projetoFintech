@@ -1,0 +1,40 @@
+body
+{
+	background: linear-gradient(lightskyblue,white); 
+}
+
+form
+{
+	background: transparent;
+}
+
+
+
+.logo
+{
+	width: 300px;
+	height: 300px;
+}
+
+.login
+{
+	background: royalblue;
+	height: 40px;
+	width: 180px;
+	border-radius: 20px;
+	border-color: black;
+	color: black;
+}
+
+.form-control
+{
+	border-radius: 20px;
+	border-color: black;
+	background: lightskyblue;
+}
+
+.cadastro
+{
+	color: royalblue;
+	font-size: 20px;
+}
