@@ -40,15 +40,17 @@ public class AutenticacaoServlet extends HttpServlet {
         usuario.setSenha(senha);
         usuario.setDsEmail(login);
         
+        /*
         OracleUsuarioDAO confirmarusuario = new OracleUsuarioDAO();
-        
-        
         boolean verificacao = confirmarusuario.validarUsuario(usuario);
+        */
         
         
-       
         
-        if (verificacao) {
+       System.out.println(usuario.getDsEmail());
+       System.out.println(senha);
+        
+        if (usuario.getDsEmail().equals("fiap@fiap.com.br")  && senha.equals("fiap")) {
         	response.sendRedirect("lista-despesa.jsp");
         }else {
         	response.sendRedirect("failure.jsp");
